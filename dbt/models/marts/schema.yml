@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: mart_team_stats
+    description: "Estadisticas agregadas por equipo en el Mundial 2022"
+    columns:
+      - name: team_id
+        tests:
+          - unique
+          - not_null
+      - name: total_games
+        tests:
+          - not_null
+      - name: country_code
+        tests:
+          - not_null
+
+  - name: mart_match_results
+    description: "Resultados de todos los partidos del Mundial 2022"
+    columns:
+      - name: match_id
+        tests:
+          - unique
+          - not_null
+      - name: total_goals
+        tests:
+          - not_null
+
+  - name: mart_group_standings
+    description: "Tabla de posiciones de la fase de grupos"
+    columns:
+      - name: points
+        tests:
+          - not_null

@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: mundial_raw
+    description: "Datos crudos del Mundial ingestados desde football-data.org via Airflow"
+    database: hive_metastore
+    schema: mundial_raw
+    tables:
+      - name: matches
+        description: "Partidos del Mundial 2022"
+        columns:
+          - name: id
+            description: "ID unico del partido"
+            tests:
+              - unique
+              - not_null
+      - name: teams
+        description: "Equipos participantes"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: standings
+        description: "Tabla de posiciones por grupo"
